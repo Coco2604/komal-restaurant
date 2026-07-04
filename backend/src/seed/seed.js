@@ -5,6 +5,7 @@ const Category = require('../models/Category');
 const MenuItem = require('../models/MenuItem');
 const Settings = require('../models/Settings');
 const Coupon = require('../models/Coupon');
+const Order = require('../models/Order');
 
 const CATEGORY_IMAGES = {
   starters: 'https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?w=400',
@@ -469,6 +470,7 @@ async function seed() {
       MenuItem.deleteMany({}),
       Settings.deleteMany({}),
       Coupon.deleteMany({}),
+      Order.deleteMany({}),
     ]);
     console.log('🗑️ Cleared existing data');
 

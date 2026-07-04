@@ -13,7 +13,7 @@ const addressSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true },
   email: { type: String, sparse: true, unique: true, trim: true, lowercase: true },
-  phone: { type: String, sparse: true, unique: true, trim: true },
+  phone: { type: String, sparse: true, trim: true },
   passwordHash: { type: String },
   role: { type: String, enum: ['customer', 'admin'], default: 'customer' },
   addresses: [addressSchema],
