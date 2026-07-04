@@ -20,8 +20,7 @@ exports.sendOTP = async (req, res) => {
       }
     } else {
       if (!user || !user.isVerified) {
-        // Anti-enumeration: Return success but don't send anything if user doesn't exist on login
-        return res.json({ success: true, message: 'If this email is registered, an OTP has been sent to your inbox.' });
+        return res.status(400).json({ success: false, message: 'Account not found. Please sign up first.' });
       }
     }
 
