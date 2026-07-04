@@ -18,6 +18,8 @@ export interface Address {
   pincode: string;
   city: string;
   state: string;
+  lat?: number;
+  lng?: number;
 }
 
 export interface Category {
@@ -125,6 +127,7 @@ export interface ApiResponse<T> {
   pages?: number;
   token?: string;
   user?: User;
+  devOtp?: string;
 }
 
 export interface AnalyticsSummary {

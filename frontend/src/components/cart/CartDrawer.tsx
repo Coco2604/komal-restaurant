@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '../../store/cartStore';
 import { useAuthStore } from '../../store/authStore';
 import toast from 'react-hot-toast';

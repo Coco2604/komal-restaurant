@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Plus, Edit2, Trash2, ToggleLeft, ToggleRight, Search, Star, Flame, Eye, EyeOff } from 'lucide-react';
+import { Plus, Edit2, Trash2, ToggleLeft, ToggleRight, Search, Star, Flame } from 'lucide-react';
 import { menuApi } from '../../api';
 import type { MenuItem, Category } from '../../types';
 import toast from 'react-hot-toast';

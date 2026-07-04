@@ -28,7 +28,7 @@ const RegisterPage: React.FC = () => {
       toast.success(res.data.message || 'OTP sent to your email');
 
       if (res.data.devOtp) {
-        toast((t) => (
+        toast(() => (
           <div className="flex flex-col gap-1">
             <span className="font-bold text-teal-900">DEV MODE OTP:</span>
             <span className="font-mono text-xl bg-teal-100 px-2 py-1 rounded text-center">{res.data.devOtp}</span>

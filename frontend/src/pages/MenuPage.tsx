@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, Filter, X, ChevronDown } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { menuApi } from '../api';
 import type { MenuItem, Category } from '../types';
 import MenuCard from '../components/menu/MenuCard';

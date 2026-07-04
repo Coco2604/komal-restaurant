@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { items, getItemCount } = useCartStore();
+  const { getItemCount } = useCartStore();
   const { user, isAuthenticated, isAdmin, logout } = useAuthStore();
   const navigate = useNavigate();
   const location = useLocation();

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, Star, Clock, MapPin, Phone, Truck, Leaf, ChefHat, Flame } from 'lucide-react';
+import { ArrowRight, Star, Clock, MapPin, Phone, Truck, Leaf, Flame } from 'lucide-react';
 import { menuApi } from '../api';
 import type { MenuItem, Category } from '../types';
 import MenuCard from '../components/menu/MenuCard';

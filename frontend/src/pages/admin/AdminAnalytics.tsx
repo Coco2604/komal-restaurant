@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, CartesianGrid, Legend } from 'recharts';
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, CartesianGrid } from 'recharts';
 import { analyticsApi } from '../../api';
 import type { RevenueData, MenuItem } from '../../types';
 
@@ -70,7 +70,7 @@ const AdminAnalytics: React.FC = () => {
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="_id" tick={{ fontSize: 11 }} tickFormatter={d => d.slice(5)} />
             <YAxis tick={{ fontSize: 11 }} tickFormatter={v => `₹${v}`} />
-            <Tooltip formatter={(v: number) => [`₹${v}`, 'Revenue']} labelFormatter={l => `Date: ${l}`} />
+            <Tooltip formatter={(v: any) => [`₹${v.toLocaleString('en-IN')}`, 'Revenue']} labelFormatter={l => `Date: ${l}`} />
             <Line type="monotone" dataKey="revenue" stroke="#0D4A4A" strokeWidth={2.5} dot={{ r: 4, fill: '#D4A017' }} activeDot={{ r: 6 }} />
           </LineChart>
         </ResponsiveContainer>
@@ -84,7 +84,7 @@ const AdminAnalytics: React.FC = () => {
             <BarChart data={bestsellers.slice(0, 8)} layout="vertical">
               <XAxis type="number" tick={{ fontSize: 10 }} />
               <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} width={100} />
-              <Tooltip formatter={(v: number) => [v, 'Orders']} />
+              <Tooltip formatter={(v: any) => [v, 'Orders']} />
               <Bar dataKey="totalOrders" fill="#0D4A4A" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
@@ -96,12 +96,25 @@ const AdminAnalytics: React.FC = () => {
           {categoryData.length > 0 ? (
             <ResponsiveContainer width="100%" height={250}>
               <PieChart>
-                <Pie data={categoryData.slice(0, 8)} dataKey="revenue" nameKey="_id" cx="50%" cy="50%" outerRadius={90} label={({ _id, percent }) => `${_id} ${(percent * 100).toFixed(0)}%`} labelLine={false}>
+                <Pie 
+                  data={categoryData.slice(0, 8)} 
+                  dataKey="revenue" 
+                  nameKey="_id" 
+                  cx="50%" 
+                  cy="50%" 
+                  outerRadius={90} 
+                  labelLine={false}
+                  label={(props: any) => (
+                    <text x={props.x} y={props.y} fill="black" textAnchor={props.x > props.cx ? 'start' : 'end'} dominantBaseline="central">
+                      {`${(props.percent * 100).toFixed(0)}%`}
+                    </text>
+                  )}
+                >
                   {categoryData.slice(0, 8).map((_, i) => (
                     <Cell key={i} fill={COLORS[i % COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip formatter={(v: number) => [`₹${v}`, 'Revenue']} />
+                <Tooltip formatter={(v: any) => [`₹${v.toLocaleString('en-IN')}`, 'Revenue']} />
               </PieChart>
             </ResponsiveContainer>
           ) : (
@@ -118,7 +131,7 @@ const AdminAnalytics: React.FC = () => {
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="_id" tick={{ fontSize: 11 }} tickFormatter={d => d.slice(5)} />
             <YAxis tick={{ fontSize: 11 }} allowDecimals={false} />
-            <Tooltip formatter={(v: number) => [v, 'Orders']} />
+            <Tooltip formatter={(v: any) => [v, 'Orders']} />
             <Bar dataKey="orders" fill="#D4A017" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>

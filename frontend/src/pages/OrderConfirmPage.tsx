@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { CheckCircle, Package, Clock, Home } from 'lucide-react';
+import { CheckCircle, Package, Home } from 'lucide-react';
 import { orderApi } from '../api';
 import type { Order } from '../types';
 

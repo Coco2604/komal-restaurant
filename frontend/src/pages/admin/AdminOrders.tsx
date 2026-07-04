@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Filter, RefreshCw, ChevronDown, Eye, Printer } from 'lucide-react';
+import { RefreshCw, Eye } from 'lucide-react';
 import { orderApi } from '../../api';
 import type { Order, OrderStatus } from '../../types';
 import toast from 'react-hot-toast';
@@ -31,7 +31,7 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 const AdminOrders: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState(searchParams.get('status') || 'all');

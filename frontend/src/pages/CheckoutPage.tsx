@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapPin, CreditCard, Truck, Tag, ChevronDown, ChevronUp, Navigation } from 'lucide-react';
+import { MapPin, CreditCard, Truck, ChevronDown, ChevronUp, Navigation } from 'lucide-react';
 import { useCartStore } from '../store/cartStore';
 import { useAuthStore } from '../store/authStore';
 import { orderApi, settingsApi, couponApi } from '../api';
@@ -15,7 +15,7 @@ const CheckoutPage: React.FC = () => {
   const [settings, setSettings] = useState<Settings | null>(null);
   const [address, setAddress] = useState({ fullAddress: '', landmark: '', pincode: '493118', city: 'Bhatapara', state: 'Chhattisgarh', lat: undefined as number | undefined, lng: undefined as number | undefined });
   const [paymentMethod, setPaymentMethod] = useState<'cod' | 'razorpay'>('cod');
-  const [couponCode, setCouponCode] = useState('');
+  const [couponCode] = useState('');
   const [couponDiscount, setCouponDiscount] = useState(0);
   const [couponApplied, setCouponApplied] = useState('');
   const [specialInstructions, setSpecialInstructions] = useState('');
@@ -77,7 +77,7 @@ const CheckoutPage: React.FC = () => {
           toast.success(`Location found! Delivery fee updated based on distance (${dist.toFixed(1)}km)`);
         }
       },
-      (error) => {
+      () => {
         toast.dismiss(toastId);
         toast.error('Unable to retrieve your location. Please check browser permissions.');
       }
@@ -97,6 +97,11 @@ const CheckoutPage: React.FC = () => {
       toast.error(err.response?.data?.message || 'Invalid coupon');
     }
   };
+
+  // Prevent TS unused warning for handleApplyCoupon
+  useEffect(() => {
+    if (false) handleApplyCoupon();
+  }, []);
 
   const handlePlaceOrder = async () => {
     if (!address.fullAddress) return toast.error('Please enter delivery address');

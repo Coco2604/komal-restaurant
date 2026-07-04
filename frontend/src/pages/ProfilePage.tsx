@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { User, Mail, Phone, MapPin, Heart, Edit2, Trash2, Plus } from 'lucide-react';
 import { userApi } from '../api';
-import type { User as UserType, Address, MenuItem } from '../types';
+import type { User as UserType, MenuItem } from '../types';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
