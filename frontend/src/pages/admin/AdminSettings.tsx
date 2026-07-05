@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Save, Globe, Clock, Truck, Percent, ToggleLeft, ToggleRight } from 'lucide-react';
+import { Save, Globe, Clock, Truck, ToggleLeft, ToggleRight } from 'lucide-react';
 import { settingsApi } from '../../api';
 import type { Settings } from '../../types';
 import toast from 'react-hot-toast';
