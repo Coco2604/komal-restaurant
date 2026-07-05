@@ -130,7 +130,7 @@ const TrackOrderPage: React.FC = () => {
             <hr className="border-gray-100 my-2" />
             <div className="flex justify-between text-sm text-gray-600"><span>Subtotal</span><span>₹{order.subtotal}</span></div>
             <div className="flex justify-between text-sm text-gray-600"><span>Delivery</span><span>₹{order.deliveryCharge}</span></div>
-            <div className="flex justify-between text-sm text-gray-600"><span>GST</span><span>₹{order.tax}</span></div>
+
             {order.discount > 0 && <div className="flex justify-between text-sm text-green-600"><span>Discount</span><span>-₹{order.discount}</span></div>}
             <hr className="border-gray-100 my-2" />
             <div className="flex justify-between font-bold text-teal-700"><span>Total</span><span>₹{order.total}</span></div>

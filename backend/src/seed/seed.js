@@ -519,7 +519,7 @@ async function seed() {
       address: 'PWRM+5CF, Nayapara Ward, Bhatapara, Chhattisgarh 493118',
       googleMapsUrl: 'https://maps.google.com/?q=21.7299,81.9943',
       deliveryCharges: { upTo1km: 50, above1km: 80 },
-      taxRate: 5,
+      taxRate: 0,
       operatingHours: { open: '09:00', close: '23:00', days: 'Monday - Sunday' },
       isOpen: true,
       preparationTime: 25,

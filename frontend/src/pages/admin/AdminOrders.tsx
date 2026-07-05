@@ -182,7 +182,7 @@ const AdminOrders: React.FC = () => {
                 <hr className="border-gray-100" />
                 <div className="flex justify-between text-xs text-gray-500"><span>Subtotal</span><span>₹{selectedOrder.subtotal}</span></div>
                 <div className="flex justify-between text-xs text-gray-500"><span>Delivery</span><span>₹{selectedOrder.deliveryCharge}</span></div>
-                <div className="flex justify-between text-xs text-gray-500"><span>Tax</span><span>₹{selectedOrder.tax}</span></div>
+
                 {selectedOrder.discount > 0 && <div className="flex justify-between text-xs text-green-600"><span>Discount</span><span>-₹{selectedOrder.discount}</span></div>}
                 <div className="flex justify-between font-bold text-teal-700"><span>Total</span><span>₹{selectedOrder.total}</span></div>
               </div>

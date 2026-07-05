@@ -52,9 +52,7 @@ const CheckoutPage: React.FC = () => {
 
   const subtotal = getSubtotal();
   const deliveryCharge = getDeliveryCharge();
-  const taxRate = settings?.taxRate || 5;
-  const tax = Math.round(subtotal * taxRate / 100);
-  const total = subtotal + deliveryCharge + tax - couponDiscount;
+  const total = subtotal + deliveryCharge - couponDiscount;
 
   const isTooFar = !!(address.lat && address.lng && calculateDistance(RESTAURANT_LAT, RESTAURANT_LNG, address.lat, address.lng) > 15);
 
@@ -260,7 +258,6 @@ const CheckoutPage: React.FC = () => {
                   <span className="flex items-center gap-1"><Truck className="w-3.5 h-3.5" /> Delivery</span>
                   <span>₹{deliveryCharge}</span>
                 </div>
-                <div className="flex justify-between text-gray-600"><span>GST ({taxRate}%)</span><span>₹{tax}</span></div>
                 {couponDiscount > 0 && (
                   <div className="flex justify-between text-green-600 font-medium"><span>Discount</span><span>−₹{couponDiscount}</span></div>
                 )}

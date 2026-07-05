@@ -105,15 +105,7 @@ const AdminSettings: React.FC = () => {
         </div>
       </div>
 
-      {/* Tax */}
-      <div className="admin-card">
-        <h3 className="font-semibold text-gray-800 flex items-center gap-2 mb-4"><Percent className="w-5 h-5 text-teal-600" /> Tax Settings</h3>
-        <div className="max-w-xs">
-          <label className="label">GST Rate (%)</label>
-          <input type="number" className="input" value={s.taxRate || 5} onChange={e => handleChange('taxRate', parseFloat(e.target.value))} step={0.5} min={0} max={28} />
-          <p className="text-xs text-gray-400 mt-1">Currently: {s.taxRate || 5}% GST applied to all orders</p>
-        </div>
-      </div>
+
 
       {/* Operating Hours */}
       <div className="admin-card">

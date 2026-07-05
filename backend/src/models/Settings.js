@@ -11,7 +11,7 @@ const settingsSchema = new mongoose.Schema({
     upTo1km: { type: Number, default: 50 },
     above1km: { type: Number, default: 80 },
   },
-  taxRate: { type: Number, default: 5 },
+
   operatingHours: {
     open: { type: String, default: '09:00' },
     close: { type: String, default: '23:00' },

@@ -73,7 +73,6 @@ export interface Order {
   deliveryAddress: Address;
   subtotal: number;
   deliveryCharge: number;
-  tax: number;
   discount: number;
   couponCode?: string;
   total: number;
@@ -96,7 +95,6 @@ export interface Settings {
   address: string;
   googleMapsUrl: string;
   deliveryCharges: { upTo1km: number; above1km: number };
-  taxRate: number;
   operatingHours: { open: string; close: string; days: string };
   isOpen: boolean;
   preparationTime: number;

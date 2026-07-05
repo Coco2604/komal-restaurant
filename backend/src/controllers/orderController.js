@@ -30,8 +30,6 @@ exports.placeOrder = async (req, res) => {
     }
 
     const deliveryCharge = calculateDeliveryCharge(deliveryAddress?.pincode, settings, deliveryAddress?.lat, deliveryAddress?.lng);
-    const taxRate = settings?.taxRate ?? 5;
-    const tax = Math.round(subtotal * taxRate / 100);
 
     let discount = 0;
     if (couponCode) {
@@ -47,7 +45,7 @@ exports.placeOrder = async (req, res) => {
       }
     }
 
-    const total = subtotal + deliveryCharge + tax - discount;
+    const total = subtotal + deliveryCharge - discount;
 
     const order = await Order.create({
       user: req.user._id,
@@ -55,7 +53,6 @@ exports.placeOrder = async (req, res) => {
       deliveryAddress,
       subtotal,
       deliveryCharge,
-      tax,
       discount,
       couponCode: couponCode?.toUpperCase(),
       total,

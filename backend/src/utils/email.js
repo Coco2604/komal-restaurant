@@ -64,7 +64,7 @@ exports.orderConfirmationEmail = (order, user) => ({
           <p style="margin:5px 0"><strong>Items:</strong> ${order.items.map(i => `${i.name} x${i.quantity}`).join(', ')}</p>
           <p style="margin:5px 0"><strong>Subtotal:</strong> ₹${order.subtotal}</p>
           <p style="margin:5px 0"><strong>Delivery:</strong> ₹${order.deliveryCharge}</p>
-          <p style="margin:5px 0"><strong>GST (5%):</strong> ₹${order.tax}</p>
+
           <p style="margin:5px 0;font-size:18px"><strong>Total: ₹${order.total}</strong></p>
           <p style="margin:5px 0"><strong>Payment:</strong> ${order.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Online'}</p>
           <p style="margin:5px 0"><strong>Estimated Delivery:</strong> ~${order.estimatedDeliveryTime} minutes</p>
